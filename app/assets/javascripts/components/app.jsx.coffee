@@ -19,10 +19,6 @@ class @App extends React.Component
         movies={this.state.movies}
         onMovieCheckboxToggle={this.onMovieCheckboxToggle}
       />
-      <MoviesFilterTimes
-        datetimeRanges={this.datetimeRanges}
-        onFilterTimeChange={this.onFilterTimeChange}
-      />
       <ShowtimesList
         showtimes={this.state.showtimes}
         datetimeRanges={this.datetimeRanges}
@@ -30,10 +26,10 @@ class @App extends React.Component
       />
     </div>`
 
-  onMovieCheckboxToggle: (target, checked) ->
+  onMovieCheckboxToggle: (changedMovie, checked) ->
     newMovies = @state.movies.slice()
     for movie in newMovies
-      if movie == target
+      if movie == changedMovie
         movie.checked = checked
     @setState({movies: newMovies})
 
