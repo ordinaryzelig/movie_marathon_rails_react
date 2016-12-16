@@ -1,0 +1,39 @@
+ //= require_tree .
+ //= require_self
+
+#movies-filter
+  li
+    display: inline-block
+    margin: 0 10px 0 10px
+    &:checked .title
+      font-weight: bold
+
+  .runtime
+    font-size: 75%
+
+#movies-filter-times
+  margin-bottom: 30px // to clear the marks
+
+.showtime
+  color: white
+  position: relative
+  height: 20px
+  margin: 5px 0 5px 0
+  background-color: blue
+  text-align: center
+
+  &.selected
+    font-weight: bold
+    background-color: green
+
+  &.selected, &.selectable
+    cursor: pointer
+
+  &.unselectable
+    opacity: 0.25
+
+  .title
+    padding: 1px
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
