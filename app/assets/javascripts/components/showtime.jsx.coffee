@@ -3,7 +3,7 @@ class @Showtime extends React.Component
     `<div
       className={'showtime ' + this.selectableClass()}
       style={{marginLeft: this.marginLeft(), width: this.runtimeWidth()}}
-      onClick={() => this.props.onShowtimeSelect(this.props.showtime)}
+      onClick={() => this.props.onShowtimeClick(this.props.showtime)}
     >
       <div
         className="title"

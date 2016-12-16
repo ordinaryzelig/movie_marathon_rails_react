@@ -11,7 +11,7 @@ class @App extends React.Component
     @datetimeRanges = @calculateDatetimeRanges(@state.showtimes)
     @onMovieCheckboxToggle = @onMovieCheckboxToggle.bind(this)
     @onFilterTimeChange = @onFilterTimeChange.bind(this)
-    @onShowtimeSelect = @onShowtimeSelect.bind(this)
+    @onShowtimeClick = @onShowtimeClick.bind(this)
 
   render: ->
     `<div>
@@ -22,7 +22,7 @@ class @App extends React.Component
       <ShowtimesList
         showtimes={this.state.showtimes}
         datetimeRanges={this.datetimeRanges}
-        onShowtimeSelect={this.onShowtimeSelect}
+        onShowtimeClick={this.onShowtimeClick}
       />
     </div>`
 
@@ -43,7 +43,7 @@ class @App extends React.Component
       movie
     @setState({movies: newMovies})
 
-  onShowtimeSelect: (showtime) ->
+  onShowtimeClick: (showtime) ->
     if showtime.selected
       @unmarkSelected(showtime)
     if !showtime.selected &&

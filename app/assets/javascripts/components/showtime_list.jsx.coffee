@@ -9,7 +9,7 @@ class @ShowtimesList extends React.Component
             key={key}
             showtime={showtime}
             datetimeRanges={this.props.datetimeRanges}
-            onShowtimeSelect={this.props.onShowtimeSelect}
+            onShowtimeClick={this.props.onShowtimeClick}
             conflictsWithSelected={this.props.showtimes.conflictsWithSelected(showtime)}
           />`
         )
