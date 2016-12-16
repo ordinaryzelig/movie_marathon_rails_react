@@ -46,6 +46,7 @@ class @App extends React.Component
   onShowtimeClick: (showtime) ->
     if showtime.selected
       @unmarkSelected(showtime)
+      return
     if !showtime.selected &&
        !showtime.movie.selected &&
        !@state.showtimes.conflictsWithSelected(showtime) &&
