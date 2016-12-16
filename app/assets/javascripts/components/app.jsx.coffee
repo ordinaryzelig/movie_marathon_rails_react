@@ -85,13 +85,13 @@ class @App extends React.Component
       ceiling: Datetime.ceiling(endTimes[endTimes.length - 1])
     }
 
-  markSelected: (selected) ->
-    @setShowtimeState selected, (newShowtime) ->
+  markSelected: (clickedShowtime) ->
+    @setShowtimeState clickedShowtime, (newShowtime) ->
       newShowtime.selected = true
       newShowtime.movie.selected = true
 
-  unmarkSelected: (selected) ->
-    @setShowtimeState selected, (newShowtime) ->
+  unmarkSelected: (clickedShowtime) ->
+    @setShowtimeState clickedShowtime, (newShowtime) ->
       newShowtime.selected = false
       newShowtime.movie.selected = false
 
