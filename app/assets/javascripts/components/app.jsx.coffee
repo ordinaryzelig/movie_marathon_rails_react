@@ -46,7 +46,6 @@ class @App extends React.Component
   onShowtimeSelect: (showtime) ->
     if showtime.selected
       @unmarkSelected(showtime)
-      return
     if !showtime.selected &&
        !showtime.movie.selected &&
        !@state.showtimes.conflictsWithSelected(showtime) &&
@@ -96,10 +95,10 @@ class @App extends React.Component
       newShowtime.selected = false
       newShowtime.movie.selected = false
 
-  setShowtimeState: (oldShowtime, setNewState) ->
+  setShowtimeState: (oldShowtime, newShowtimeCallback) ->
     newShowtimes = @state.showtimes.slice()
-    for newShowtime in newShowtimes.length
-      setNewState(newShowtime) if newShowtime == oldShowtime
+    for newShowtime in newShowtimes
+      newShowtimeCallback(newShowtime) if newShowtime == oldShowtime
     @addShowtimeFunctions(newShowtimes)
     @calculateLayovers(newShowtimes.selected())
     @setState({showtimes: newShowtimes})
@@ -128,7 +127,6 @@ class @App extends React.Component
       false
 
   calculateLayovers: (showtimes) ->
-    for idx in [0..showtimes.length]
-      showtime = showtimes[idx]
+    for showtime, idx in showtimes.slice(0, showtimes.length - 1)
       nextShowtime = showtimes[idx + 1]
       showtime.layoverMinutes = Datetime.minutesBetween(showtime.endTime, nextShowtime.datetime)
