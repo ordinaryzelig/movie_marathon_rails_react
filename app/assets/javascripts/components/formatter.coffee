@@ -2,8 +2,7 @@
   formatTime: (datetime) ->
     hours = @formatHour(datetime.getHours())
     minutes = @formatMinutes(datetime.getMinutes())
-    ampm = @formatMeridiem(datetime.getHours())
-    "#{hours}:#{minutes} #{ampm}"
+    "#{hours}:#{minutes}"
 
   formatHour: (hours) ->
     if hours > 12  then return hours % 12

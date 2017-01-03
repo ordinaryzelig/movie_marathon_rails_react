@@ -59,12 +59,12 @@ class @App extends React.Component
   initMovies: (movies) ->
     for movie in movies
       movie.checked = false
+      movie.runtime ||= 120
       for showtime in movie.showtimes
         showtime.movie = movie
         showtime.datetime = new Date(showtime.datetime)
         showtime.withinRange = true
-        showtime.runtime ||= 120
-        showtime.endTime = Datetime.addMinutes(showtime.datetime, showtime.runtime)
+        showtime.endTime = Datetime.addMinutes(showtime.datetime, showtime.movie.runtime)
 
   extractShowtimes: (movies) ->
     showtimes = []

@@ -16,11 +16,9 @@
 
 .showtime
   color: white
-  position: relative
-  height: 20px
   margin: 5px 0 5px 0
-  background-color: blue
   text-align: center
+  background-color: blue
 
   &.selected
     font-weight: bold
@@ -33,7 +31,16 @@
     opacity: 0.25
 
   .title
-    padding: 1px
+    padding: 2px
     overflow: hidden
     white-space: nowrap
     text-overflow: ellipsis
+
+  .datetime
+    color: lightgray
+    font-size: 80%
+    padding: 0 2px 0 2px
+    &.start
+      float: left
+    &.end
+      float: right

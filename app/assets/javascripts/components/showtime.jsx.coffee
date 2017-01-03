@@ -5,6 +5,8 @@ class @Showtime extends React.Component
       style={{marginLeft: this.marginLeft(), width: this.runtimeWidth()}}
       onClick={() => this.props.onShowtimeClick(this.props.showtime)}
     >
+      <div className="datetime start">{Formatter.formatTime(this.props.showtime.datetime)}</div>
+      <div className="datetime end">{Formatter.formatTime(this.props.showtime.endTime)}</div>
       <div
         className="title"
         title={this.props.showtime.movie.title}
@@ -31,5 +33,5 @@ class @Showtime extends React.Component
 
   runtimeWidth: ->
     spanMinutes = Datetime.minutesBetween(@props.datetimeRanges.floor, @props.datetimeRanges.ceiling)
-    percent = (@props.showtime.runtime / spanMinutes) * 100
+    percent = (@props.showtime.movie.runtime / spanMinutes) * 100
     "#{percent}%"
