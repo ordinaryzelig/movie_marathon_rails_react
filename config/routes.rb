@@ -3,6 +3,6 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
-    resources :showtime_lists, :only => [:index]
+    resources :showtime_lists, :only => [:index], :path => 'showtimes'
   end
 end
