@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 20170104052058) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "showtimes", force: :cascade do |t|
+  create_table "showtime_lists", force: :cascade do |t|
     t.integer "theater_id", null: false
     t.date    "date",       null: false
     t.jsonb   "movies",     null: false
-    t.index ["theater_id"], name: "index_showtimes_on_theater_id", using: :btree
+    t.index ["theater_id"], name: "index_showtime_lists_on_theater_id", using: :btree
   end
 
   create_table "theaters", force: :cascade do |t|
@@ -27,5 +27,5 @@ ActiveRecord::Schema.define(version: 20170104052058) do
     t.string "remote_id", null: false
   end
 
-  add_foreign_key "showtimes", "theaters"
+  add_foreign_key "showtime_lists", "theaters"
 end

@@ -28,3 +28,38 @@
       "#{hours}h #{mins}m"
     else
       '?'
+
+  # why is this so fucking difficult?
+  months: [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  weekdays: [
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+    'Sun',
+  ]
+
+  formatDate: (date) ->
+    "#{@weekdays[date.getDay()]} #{@months[date.getMonth() + 1]} #{date.getDate()}"
+
+  dateFormats: {
+    db: new Intl.DateTimeFormat('en-US', year: 'numeric', month: 'numeric', day: 'numeric')
+  }
+
+  formatDateDB: (date) ->
+    @dateFormats.db.format(date)

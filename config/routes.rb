@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  root :to => 'asdf#index'
-
-  resources :theaters, :only => [:show] do
+  resources :theaters, :only => [:index] do
     collection do
-      get '/search/:zipcode', :to => 'theaters#search', :as => 'search'
+      get :search
     end
+    resources :showtime_lists, :only => [:index]
   end
 end
