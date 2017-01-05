@@ -31,7 +31,7 @@ class @MoviesFilterTimes extends React.Component
 
   formatTip: (minutes) ->
     adjusted = Datetime.addMinutes(@floorTime, minutes)
-    return Formatter.formatTime(adjusted)
+    Formatter.formatTime(adjusted)
 
   marks: ->
     marks = {}
