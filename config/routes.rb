@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'theaters#index'
+
   resources :theaters, :only => [:index] do
     collection do
       get :search
