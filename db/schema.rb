@@ -16,15 +16,19 @@ ActiveRecord::Schema.define(version: 20170104052058) do
   enable_extension "plpgsql"
 
   create_table "showtime_lists", force: :cascade do |t|
-    t.integer "theater_id", null: false
-    t.date    "date",       null: false
-    t.jsonb   "movies",     null: false
+    t.integer  "theater_id", null: false
+    t.date     "date",       null: false
+    t.jsonb    "movies",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["theater_id"], name: "index_showtime_lists_on_theater_id", using: :btree
   end
 
   create_table "theaters", force: :cascade do |t|
-    t.string "name",      null: false
-    t.string "remote_id", null: false
+    t.string   "name",       null: false
+    t.string   "remote_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "showtime_lists", "theaters"

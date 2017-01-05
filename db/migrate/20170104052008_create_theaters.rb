@@ -3,6 +3,8 @@ class CreateTheaters < ActiveRecord::Migration[5.0]
     create_table :theaters do |t|
       t.string :name, :null => false
       t.string :remote_id, :null => false
+
+      t.timestamps
     end
   end
 end

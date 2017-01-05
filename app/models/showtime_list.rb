@@ -1,5 +1,7 @@
 class ShowtimeList < ApplicationRecord
 
+  belongs_to :theater
+
   class << self
 
     def fetch(theater, date = Date.today)
@@ -9,6 +11,16 @@ class ShowtimeList < ApplicationRecord
       )
     end
 
+  end
+
+  def refresh
+    update!(
+      :movies => self.class.fetch(theater, date)
+    )
+  end
+
+  def stale?
+    1.hour.ago > updated_at
   end
 
 end

@@ -6,10 +6,7 @@ class Theater < ApplicationRecord
       showtime_list = find_or_initialize_by(
         :date => date,
       )
-      unless showtime_list.persisted?
-        showtime_list.movies = fetch(theater, date)
-        showtime_list.save!
-      end
+      showtime_list.refresh if showtime_list.new_record? || showtime_list.stale?
       showtime_list
     end
 
