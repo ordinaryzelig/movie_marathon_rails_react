@@ -45,13 +45,13 @@
     'Dec',
   ]
   weekdays: [
+    'Sun',
     'Mon',
     'Tue',
     'Wed',
     'Thu',
     'Fri',
     'Sat',
-    'Sun',
   ]
 
   formatDate: (date) ->
