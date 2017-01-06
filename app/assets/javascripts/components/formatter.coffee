@@ -55,7 +55,7 @@
   ]
 
   formatDate: (date) ->
-    "#{@weekdays[date.getDay()]} #{@months[date.getMonth() + 1]} #{date.getDate()}"
+    "#{@weekdays[date.getDay()]} #{@months[date.getMonth()]} #{date.getDate()}"
 
   dateFormats: {
     db: new Intl.DateTimeFormat('en-US', year: 'numeric', month: 'numeric', day: 'numeric')
