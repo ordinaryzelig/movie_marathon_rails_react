@@ -8,8 +8,7 @@ Bundler.require(*Rails.groups)
 
 module MovieMarathonRailsReact
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    # The last time zone on earth.
+    config.time_zone = "International Date Line West"
   end
 end
