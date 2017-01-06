@@ -4,7 +4,7 @@ class ShowtimeList < ApplicationRecord
 
   class << self
 
-    def fetch(theater, date = Date.today)
+    def fetch(theater, date = Date.current)
       Fandango.theater_showtimes(
         :theater_id => theater.remote_id,
         :date       => date,

@@ -6,7 +6,7 @@ class ShowtimeListsController < ApplicationController
       if params.key?(:date)
         Date.strptime(params[:date], '%m/%d/%Y')
       else
-        Date.today
+        Date.current
       end
     @showtime_list = @theater.showtime_lists.for(@date)
   end
