@@ -33,5 +33,5 @@ class @Showtime extends React.Component
 
   runtimeWidth: ->
     spanMinutes = Datetime.minutesBetween(@props.datetimeRanges.floor, @props.datetimeRanges.ceiling)
-    percent = (@props.showtime.movie.runtime / spanMinutes) * 100
+    percent = (@props.showtime.movie.runtimeWithPreviews / spanMinutes) * 100
     "#{percent}%"

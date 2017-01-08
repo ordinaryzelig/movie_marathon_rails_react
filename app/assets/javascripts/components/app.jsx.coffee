@@ -61,6 +61,7 @@ class @App extends React.Component
     for movie in movies
       movie.checked = false
       movie.runtime ||= 120
+      movie.runtimeWithPreviews = movie.runtime + @previewsMinutes
       for showtime in movie.showtimes
         showtime.movie = movie
         showtime.datetime = new Date(showtime.datetime)
