@@ -65,8 +65,8 @@ class @App extends React.Component
         showtime.movie = movie
         showtime.datetime = new Date(showtime.datetime)
         showtime.withinRange = true
-        showtime.endTime = Datetime.addMinutes(showtime.datetime, showtime.movie.runtime)
         showtime.featureDatetime = Datetime.addMinutes(showtime.datetime, @previewsMinutes)
+        showtime.endTime = Datetime.addMinutes(showtime.featureDatetime, showtime.movie.runtime)
 
   extractShowtimes: (movies) ->
     showtimes = []
@@ -119,12 +119,16 @@ class @App extends React.Component
       for selected in showtimes.selected()
         conflicts =
           (
-            selected.featureDatetime <= showtime.featureDatetime &&
-            showtime.featureDatetime <= selected.endTime
+            showtime.featureDatetime <= selected.featureDatetime <= showtime.endTime
           ) ||
           (
-            showtime.endTime >= selected.featureDatetime &&
-            showtime.endTime <= selected.endTime
+            showtime.featureDatetime <= selected.endTime <= showtime.endTime
+          ) ||
+          (
+            selected.featureDatetime <= showtime.featureDatetime <= selected.endTime
+          ) ||
+          (
+            selected.featureDatetime <= showtime.endTime <= selected.endTime
           )
         return true if conflicts
       false
