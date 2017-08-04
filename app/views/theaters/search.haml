@@ -1,0 +1,4 @@
+%ul
+  - @theaters.each do |theater|
+    %li
+      = link_to theater.name, theater_showtime_lists_path(theater)

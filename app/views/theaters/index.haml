@@ -1,0 +1,7 @@
+= form_tag search_theaters_path, :method => :get do
+
+  .form-group
+    = text_field_tag :zipcode, nil, :placeholder => 'Enter Zipcode', :class => 'form-control'
+
+  .form-group
+    = submit_tag 'Search Theaters', :class => 'btn btn-info'

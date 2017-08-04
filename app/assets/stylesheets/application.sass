@@ -1,46 +1,49 @@
  //= require_tree .
  //= require_self
 
-#movies-filter
-  li
-    display: inline-block
-    margin: 0 10px 0 10px
-    &:checked .title
-      font-weight: bold
+@import "bootstrap-sprockets"
+@import "bootstrap"
 
-  .runtime
-    font-size: 75%
+//#movies-filter
+  //li
+    //display: inline-block
+    //margin: 0 10px 0 10px
+    //&:checked .title
+      //font-weight: bold
 
-#movies-filter-times
-  margin-bottom: 30px // to clear the marks
+  //.runtime
+    //font-size: 75%
 
-.showtime
-  color: white
-  margin: 5px 0 5px 0
-  text-align: center
-  background-color: blue
+//#movies-filter-times
+  //margin-bottom: 30px // to clear the marks
 
-  &.selected
-    font-weight: bold
-    background-color: green
+//.showtime
+  //color: white
+  //margin: 5px 0 5px 0
+  //text-align: center
+  //background-color: blue
 
-  &.selected, &.selectable
-    cursor: pointer
+  //&.selected
+    //font-weight: bold
+    //background-color: green
 
-  &.unselectable
-    opacity: 0.25
+  //&.selected, &.selectable
+    //cursor: pointer
 
-  .title
-    padding: 2px
-    overflow: hidden
-    white-space: nowrap
-    text-overflow: ellipsis
+  //&.unselectable
+    //opacity: 0.25
 
-  .datetime
-    color: lightgray
-    font-size: 80%
-    padding: 0 2px 0 2px
-    &.start
-      float: left
-    &.end
-      float: right
+  //.title
+    //padding: 2px
+    //overflow: hidden
+    //white-space: nowrap
+    //text-overflow: ellipsis
+
+  //.datetime
+    //color: lightgray
+    //font-size: 80%
+    //padding: 0 2px 0 2px
+    //&.start
+      //float: left
+    //&.end
+      //float: right
