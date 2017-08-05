@@ -4,46 +4,48 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
-//#movies-filter
-  //li
-    //display: inline-block
-    //margin: 0 10px 0 10px
-    //&:checked .title
-      //font-weight: bold
+#movies-filter
+  li
+    &.checked .title
+      color: white
+      background-color: green
 
-  //.runtime
-    //font-size: 75%
+    .runtime
+      font-size: 75%
+      font-weight: normal
+      margin-left: 4px
 
-//#movies-filter-times
-  //margin-bottom: 30px // to clear the marks
+    .title
+      margin-left: 2px
+      padding: 3px
 
-//.showtime
-  //color: white
-  //margin: 5px 0 5px 0
-  //text-align: center
-  //background-color: blue
+.showtime
+  color: white
+  margin: 5px 0 5px 0
+  text-align: center
+  background-color: blue
 
-  //&.selected
-    //font-weight: bold
-    //background-color: green
+  &.selected
+    background-color: green
 
-  //&.selected, &.selectable
-    //cursor: pointer
+  &.selected, &.selectable
+    cursor: pointer
 
-  //&.unselectable
-    //opacity: 0.25
+  &.unselectable
+    opacity: 0.25
+    cursor: not-allowed
 
-  //.title
-    //padding: 2px
-    //overflow: hidden
-    //white-space: nowrap
-    //text-overflow: ellipsis
+  .title
+    padding: 2px
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
 
-  //.datetime
-    //color: lightgray
-    //font-size: 80%
-    //padding: 0 2px 0 2px
-    //&.start
-      //float: left
-    //&.end
-      //float: right
+  .datetime
+    color: lightgray
+    font-size: 80%
+    padding: 0 2px 0 2px
+    &.start
+      float: left
+    &.end
+      float: right

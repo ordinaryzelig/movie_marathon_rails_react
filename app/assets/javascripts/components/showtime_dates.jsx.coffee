@@ -10,8 +10,8 @@ class @ShowtimeDates extends React.Component
 
     lis = dates.map (date) ->
       href = "?date=#{Formatter.formatDateDB(date)}"
-      `<li key={date}>
+      `<li key={date} className="col-sm-1 col-xs-3">
         <a href={href}>{Formatter.formatDate(date)}</a>
       </li>`
 
-    `<ul>{lis}</ul>`
+    `<ul id="showtime-dates" className="row">{lis}</ul>`

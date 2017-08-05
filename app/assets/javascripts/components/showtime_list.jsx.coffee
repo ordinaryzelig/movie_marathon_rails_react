@@ -14,6 +14,6 @@ class @ShowtimesList extends React.Component
           />`
         )
 
-    `<div>
+    `<div className="row">
       {showtimeComponents}
     </div>`
