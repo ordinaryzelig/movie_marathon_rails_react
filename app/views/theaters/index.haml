@@ -5,3 +5,12 @@
 
   .form-group
     = submit_tag 'Search Theaters', :class => 'btn btn-info'
+
+or
+
+= form_tag parse_theaters_path do
+  .form-group
+    = text_area_tag :json, nil, :placeholder => 'JSON', :class => 'form-control'
+
+  .form-group
+    = submit_tag

@@ -7,4 +7,9 @@ class TheatersController < ApplicationController
     @theaters = Theater.search(params[:zipcode])
   end
 
+  def parse
+    @theaters = Theater.parse(MultiJson.load(params[:json]))
+    render :search
+  end
+
 end

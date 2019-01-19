@@ -39,6 +39,42 @@ class Theater < ApplicationRecord
       end
     end
 
+    def parse(parsed)
+      parsed.fetch('theaters').map do |theater_hash|
+        theater = create!(
+          :name => theater_hash.fetch('name'),
+          :remote_id => theater_hash.fetch('id'),
+        )
+
+        parse_showtime_list(theater, theater_hash)
+
+        theater
+      end
+    end
+
+  private
+
+    def parse_showtime_list(theater, theater_hash)
+      theater.showtime_lists.create!(
+        :date   => Date.parse(theater_hash.fetch('displayDate')),
+        :movies => parse_movies(theater_hash),
+      )
+    end
+
+    def parse_movies(theater_hash)
+      theater_hash.fetch('movies').map do |movie_hash|
+        {
+          :title => movie_hash.fetch('title'),
+          :runtime => movie_hash.fetch('runtime'),
+          :showtimes => movie_hash.fetch('variants').fetch(0).fetch('amenityGroups').fetch(0).fetch('showtimes').map do |showtime_hash|
+            {
+              :datetime => DateTime.parse(showtime_hash.fetch('ticketingDate')),
+            }
+          end,
+        }
+      end
+    end
+
   end
 
 end
