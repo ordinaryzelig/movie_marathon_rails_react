@@ -10,3 +10,6 @@
 
   minutesBetween: (a, b) ->
     (b - a) / 60000
+
+  without_timezone: (datetime_str) ->
+    new Date(datetime_str.replace(/\+.*/, ''))

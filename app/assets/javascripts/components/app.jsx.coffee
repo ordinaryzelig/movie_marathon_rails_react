@@ -64,7 +64,7 @@ class @App extends React.Component
       movie.runtimeWithPreviews = movie.runtime + @previewsMinutes
       for showtime in movie.showtimes
         showtime.movie = movie
-        showtime.datetime = new Date(showtime.datetime)
+        showtime.datetime = Datetime.without_timezone(showtime.datetime)
         showtime.withinRange = true
         showtime.featureDatetime = Datetime.addMinutes(showtime.datetime, @previewsMinutes)
         showtime.endTime = Datetime.addMinutes(showtime.featureDatetime, showtime.movie.runtime)
